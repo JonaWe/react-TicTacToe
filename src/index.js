@@ -97,7 +97,9 @@ class Game extends React.Component {
     });
 
     let status = winner
-      ? `Winner ${winner}`
+      ? winner === "D"
+        ? "Draw"
+        : `Winner ${winner}`
       : `Next player: ${this.state.xIsNext ? "X" : "O"}`;
     return (
       <div className="pagecontent">
@@ -137,11 +139,16 @@ function calculateWinner(squares) {
     [2, 4, 6],
   ];
 
+  let allFieldsInUse = true;
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
-      return squares[a];
+        return squares[a];
+    let lineInUse = squares[a] != null && squares[b] != null && squares[c] != null;
+    allFieldsInUse &= lineInUse;
   }
 
-  return null;
+  return allFieldsInUse
+    ? "D"
+    : null;
 };
