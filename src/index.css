@@ -48,16 +48,17 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  transform: scale(2);
 }
 
 .game-info {
   margin-left: 20px;
 }
 
-/*
+
 .pagecontent {
   height: 100vh;
   display: grid;
   place-items: center;
-  transform: scale(2);
-}*/
+}

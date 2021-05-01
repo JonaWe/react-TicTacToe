@@ -63,7 +63,7 @@ class Game extends React.Component {
     newSquares[i] = this.state.xIsNext ? "X" : "O";
     this.setState(
       {
-        history: [...history, newSquares ],
+        history: [...history, newSquares],
         xIsNext: !this.state.xIsNext,
       }
     );
@@ -100,20 +100,20 @@ class Game extends React.Component {
       ? `Winner ${winner}`
       : `Next player: ${this.state.xIsNext ? "X" : "O"}`;
     return (
-      //<div className="pagecontent">
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current}
-            onClick={(i) => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+      <div className="pagecontent">
+        <div className="game">
+          <div className="game-board">
+            <Board
+              squares={current}
+              onClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
       </div>
-      //</div>
     );
   }
 }
